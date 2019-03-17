@@ -28,5 +28,7 @@ SOCIAL = (('Twitter', 'https://twitter.com/'),
 
 DEFAULT_PAGINATION = 10
 
+THEME="./theme-rth/"
+
 # Uncomment following line if you want document-relative URLs when developing
 #RELATIVE_URLS = True
