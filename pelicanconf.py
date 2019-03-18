@@ -19,14 +19,19 @@ TRANSLATION_FEED_ATOM = None
 AUTHOR_FEED_ATOM = None
 AUTHOR_FEED_RSS = None
 
+MENUITEMS = [('About', "/about")]
+
 # Blogroll
 LINKS = (('You can modify those links in your config file', '#'),)
+
 
 # Social widget
 SOCIAL = (('Twitter', 'https://twitter.com/'),
           ('LinkedIn', 'https://www.linkedin.com/in/ryurchak/'),)
 
 DEFAULT_PAGINATION = 10
+
+THEME="./theme-rth/"
 
 # Uncomment following line if you want document-relative URLs when developing
 #RELATIVE_URLS = True
