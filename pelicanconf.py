@@ -19,8 +19,11 @@ TRANSLATION_FEED_ATOM = None
 AUTHOR_FEED_ATOM = None
 AUTHOR_FEED_RSS = None
 
+MENUITEMS = [('About', "/about")]
+
 # Blogroll
 LINKS = (('You can modify those links in your config file', '#'),)
+
 
 # Social widget
 SOCIAL = (('Twitter', 'https://twitter.com/'),

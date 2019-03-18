@@ -1,9 +1,17 @@
 <!DOCTYPE html>
 <html lang="{% block html_lang %}{{ DEFAULT_LANG }}{% endblock html_lang %}">
 <head>
+
         {% block head %}
-        <title>{% block title %}{{ SITENAME }}{% endblock title %}</title>
         <meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+        <title>{% block title %}{{ SITENAME }}{% endblock title %}</title>
+	<!-- <meta property="og:title" content=""> -->
+	<meta property="og:type" content="website">
+
+	<!-- TODO: add meta description & meta key words -->
+
         {% if FEED_ALL_ATOM %}
         <link href="{{ FEED_DOMAIN }}/{% if FEED_ALL_ATOM_URL %}{{ FEED_ALL_ATOM_URL }}{% else %}{{ FEED_ALL_ATOM }}{% endif %}" type="application/atom+xml" rel="alternate" title="{{ SITENAME }} Full Atom Feed" />
         {% endif %}
@@ -28,14 +36,20 @@
         {% if TAG_FEED_RSS and tag %}
         <link href="{{ FEED_DOMAIN }}/{% if TAG_FEED_RSS_URL %}{{ TAG_FEED_RSS_URL.format(slug=tag.slug) }}{% else %}{{ TAG_FEED_RSS.format(slug=tag.slug) }}{% endif %}" type="application/rss+xml" rel="alternate" title="{{ SITENAME }} Tags RSS Feed" />
         {% endif %}
+
+	<link rel="stylesheet" href="{{ SITEURL }}/theme/css/main.css" media="all">
+	<link rel="stylesheet" href="{{ SITEURL }}/theme/css/fonts.css">
+
         {% endblock head %}
 </head>
 
-<body id="index" class="home">
-        <header id="banner" class="body">
-                <h1><a href="{{ SITEURL }}/">{{ SITENAME }} <strong>{{ SITESUBTITLE }}</strong></a></h1>
-        </header><!-- /#banner -->
-        <nav id="menu"><ul>
+<body>
+    <div class="wrapper">
+        <header class="header">
+		<!-- 	<h1><a href="{{ SITEURL }}/">{{ SITENAME }} <strong>{{ SITESUBTITLE }}</strong></a></h1> -->
+
+        <nav id="menu">
+	<ul class="nav-links">
         {% for title, link in MENUITEMS %}
             <li><a href="{{ link }}">{{ title }}</a></li>
         {% endfor %}
@@ -50,13 +64,26 @@
           {% endfor %}
         {% endif %}
         </ul></nav><!-- /#menu -->
+        </header><!-- /#banner -->
+
+	<main class="content">
         {% block content %}
         {% endblock %}
-        <footer id="contentinfo" class="body">
-                <address id="about" class="vcard body">
-                Proudly powered by <a href="http://getpelican.com/">Pelican</a>,
-                which takes great advantage of <a href="http://python.org">Python</a>.
-                </address><!-- /#about -->
-        </footer><!-- /#contentinfo -->
+	</main>
+
+	<footer class="footer">
+        <ul class="footer-links">
+          <li>
+            <a href="#" type="application/rss+xml" target="_blank"><i class="fa fa-rss"></i> Unkown</a>
+          </li>
+          <li>
+            <a href="https://github.com/mobybit/hugo-natrium-theme"><i class="fa fa-github"></i> Code</a>
+          </li>
+          <li>
+            <a href="{{ SITEURL }}/site-notice">Site notice</a>
+          </li>
+        </ul>
+        </footer>
+    </div>
 </body>
 </html>
